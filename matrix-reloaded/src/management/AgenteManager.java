@@ -17,9 +17,9 @@ public class AgenteManager {
 
         String nombre = ConsoleUtils.leerTexto("Ingrese el nombre del agente: ");
         String habilidad = ConsoleUtils.leerTexto("Ingrese la habilidad especial del agente: ");
-        Int nivelAgente = ConsoleUtils.leerTexto("el nivel de su ajente es 1, desea aumentarlo ?");
+        int nivel = ConsoleUtils.leerTexto("nivel agente: ");
 
-        Agente nuevoAgente = new Agente(id, nombre, habilidad, nivelAgente);
+        Agente nuevoAgente = new Agente(id, nombre, habilidad, nivel);
         agentes.add(nuevoAgente);
         System.out.println("Agente registrado con éxito.");
     }
@@ -32,6 +32,12 @@ public class AgenteManager {
         System.out.println("=== Lista de Agentes ===");
         for (Agente agente : agentes) {
             System.out.println(agente);
+            System.out.println(" nivel de agente: " + agente.incrementarNivel());
+            System.out.println("¿subir de nivel al agente?");
+            int incrementarNivel = ConsoleUtils.leerEntero("ingrese 1 para si y 2 para no: ");
+            if (incrementarNivel == 1) {
+                agente.incrementarNivel(agente);
+            }
         }
     }
 

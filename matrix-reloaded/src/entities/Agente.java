@@ -7,6 +7,7 @@ public class Agente extends Entidad {
     public Agente(int id, String nombre, String habilidadEspecial, int nivel) {
         super(id, nombre);
         this.habilidadEspecial = habilidadEspecial;
+        this.nivel = nivel;
     }
 
     public String getHabilidadEspecial() {
@@ -24,13 +25,16 @@ public class Agente extends Entidad {
     public void asignarMision(String mision) {
         this.misionAsignada = mision;
     }
+    public void getnivel(){
+
+    }
     public void incrementarNivel (int nivel){
-        this.nivel = nivel;
+        nivel = nivel + 1;
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", Habilidad Especial: " + habilidadEspecial + "aumenta nivel" +
+        return super.toString() + ", Habilidad Especial: " + habilidadEspecial +
                 (misionAsignada != null ? ", Misión: " + misionAsignada : "");
     }
 }
